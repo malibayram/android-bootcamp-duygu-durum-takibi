@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">DuyguDurumTakibi</string>
+    <string name="merhaba_d_nya">Merhaba Dünya</string>
+    <string name="string_ref">Kullanacağınız Metin</string>
+    <string name="baslat">Başlat</string>
+    <string name="bitir">Bitir</string>
+    <string name="tum_veriyi_temizle">Tüm Veriyi Temizle</string>
+    <string name="duygu_veri_listeniz">Duygu Veri Listeniz</string>
 </resources>
