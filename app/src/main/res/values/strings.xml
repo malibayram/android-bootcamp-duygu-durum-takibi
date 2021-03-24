@@ -6,4 +6,25 @@
     <string name="bitir">Bitir</string>
     <string name="tum_veriyi_temizle">Tüm Veriyi Temizle</string>
     <string name="duygu_veri_listeniz">Duygu Veri Listeniz</string>
+
+
+    <string name="baslik"><![CDATA[<h3>DUYGU DURUM VERİLERİNİZ</h3>]]></string>
+    <string name="baslama_zamani"><![CDATA[<b>Başlama:</b>]]></string>
+    <string name="bitis_zamani"><![CDATA[<b>Bitiş:</b>]]></string>
+    <string name="duygu"><![CDATA[<b>Duygu:</b>]]></string>
+    <string name="duygu_suresi"><![CDATA[<b>Saat:Dakika:Saniye</b>]]></string>
+
+
+    <string name="duygun_nasildi">Seçili süre aralığında duygun nasıldı ?</string>
+    <string name="durum_0">Aç</string>
+    <string name="durum_1">Sinirli</string>
+    <string name="durum_2">Endişeli</string>
+    <string name="durum_3">Ağlıyor</string>
+    <string name="durum_4">Hunharca Gülüyor</string>
+    <string name="durum_5">Normal</string>
+    <string name="durum_6">Düşünceli</string>
+    <string name="durum_7">Aşık</string>
+    <string name="durum_8">Uykulu</string>
+
+    <string name="temizlendi_mesaji">Tüm veriniz tamamen silindi.</string>
 </resources>

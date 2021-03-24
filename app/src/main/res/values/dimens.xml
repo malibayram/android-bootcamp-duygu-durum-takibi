@@ -2,4 +2,5 @@
 <resources>
     <dimen name="g_margin">16dp</dimen>
     <dimen name="normal_metin_boyutu">18sp</dimen>
+    <dimen name="soru_metin_boyutu">20sp</dimen>
 </resources>

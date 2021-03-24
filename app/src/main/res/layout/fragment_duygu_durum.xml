@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".duygudurum.DuyguDurumFragment">
+
+    <data>
+
+        <variable
+            name="duyguDurumGoruntuModel"
+            type="com.dh.duygudurumtakibi.duygudurum.DuyguDurumViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/duygun_nasildi"
+            android:textSize="@dimen/soru_metin_boyutu" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/imageButton0"
+                android:layout_width="0dp"
+                android:layout_height="88dp"
+                android:layout_weight="1"
+                android:contentDescription="@string/app_name"
+                android:onClick="@{() -> duyguDurumGoruntuModel.duyguDurumSecimiYap(0)}"
+                android:scaleType="fitCenter"
+                android:src="@drawable/food" />
+
+            <ImageButton
+                android:id="@+id/imageButton1"
+                android:layout_width="0dp"
+                android:layout_height="88dp"
+                android:layout_weight="1"
+                android:contentDescription="@string/app_name"
+                android:onClick="@{() -> duyguDurumGoruntuModel.duyguDurumSecimiYap(1)}"
+                android:scaleType="fitCenter"
+                android:src="@drawable/angry" />
+
+            <ImageButton
+                android:id="@+id/imageButton2"
+                android:layout_width="0dp"
+                android:layout_height="88dp"
+                android:layout_weight="1"
+                android:contentDescription="@string/app_name"
+                android:onClick="@{() -> duyguDurumGoruntuModel.duyguDurumSecimiYap(2)}"
+                android:scaleType="fitCenter"
+                android:src="@drawable/anxious" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/imageButton3"
+                android:layout_width="0dp"
+                android:layout_height="88dp"
+                android:layout_weight="1"
+                android:contentDescription="@string/app_name"
+                android:onClick="@{() -> duyguDurumGoruntuModel.duyguDurumSecimiYap(3)}"
+                android:scaleType="fitCenter"
+                android:src="@drawable/crying1" />
+
+            <ImageButton
+                android:id="@+id/imageButton4"
+                android:layout_width="0dp"
+                android:layout_height="88dp"
+                android:layout_weight="1"
+                android:contentDescription="@string/app_name"
+                android:onClick="@{() -> duyguDurumGoruntuModel.duyguDurumSecimiYap(4)}"
+                android:scaleType="fitCenter"
+                android:src="@drawable/laughing" />
+
+            <ImageButton
+                android:id="@+id/imageButton5"
+                android:layout_width="0dp"
+                android:layout_height="88dp"
+                android:layout_weight="1"
+                android:contentDescription="@string/app_name"
+                android:onClick="@{() -> duyguDurumGoruntuModel.duyguDurumSecimiYap(5)}"
+                android:scaleType="fitCenter"
+                android:src="@drawable/expressionless" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/imageButton6"
+                android:layout_width="0dp"
+                android:layout_height="88dp"
+                android:layout_weight="1"
+                android:contentDescription="@string/app_name"
+                android:onClick="@{() -> duyguDurumGoruntuModel.duyguDurumSecimiYap(6)}"
+                android:scaleType="fitCenter"
+                android:src="@drawable/thinking" />
+
+            <ImageButton
+                android:id="@+id/imageButton7"
+                android:layout_width="0dp"
+                android:layout_height="88dp"
+                android:layout_weight="1"
+                android:contentDescription="@string/app_name"
+                android:onClick="@{() -> duyguDurumGoruntuModel.duyguDurumSecimiYap(7)}"
+                android:scaleType="fitCenter"
+                android:src="@drawable/fall_in_love" />
+
+            <ImageButton
+                android:id="@+id/imageButton8"
+                android:layout_width="0dp"
+                android:layout_height="88dp"
+                android:layout_weight="1"
+                android:contentDescription="@string/app_name"
+                android:onClick="@{() -> duyguDurumGoruntuModel.duyguDurumSecimiYap(8)}"
+                android:scaleType="fitCenter"
+                android:src="@drawable/sleeping" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>

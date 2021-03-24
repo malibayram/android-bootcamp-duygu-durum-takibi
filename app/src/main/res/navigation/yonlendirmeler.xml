@@ -2,12 +2,34 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/yonlendirmeler"
-    app:startDestination="@id/duyguTakip">
+    android:id="@+id/navigation"
+    app:startDestination="@id/duyguTakipFragment">
 
     <fragment
-        android:id="@+id/duyguTakip"
+        android:id="@+id/duyguTakipFragment"
         android:name="com.dh.duygudurumtakibi.duygutakip.DuyguTakipFragment"
-        android:label="duygu_takip_fragment"
-        tools:layout="@layout/duygu_takip_fragment" />
+        android:label="DuyguTakipFragment"
+        tools:layout="@layout/duygu_takip_fragment">
+        <action
+            android:id="@+id/action_duyguTakipFragment_to_duyguDurumFragment"
+            app:destination="@id/duyguDurumFragment"
+            app:enterAnim="@anim/saga_kay"
+            app:popEnterAnim="@anim/saga_kay" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/duyguDurumFragment"
+        android:name="com.dh.duygudurumtakibi.duygudurum.DuyguDurumFragment"
+        android:label="duygu_durum_fragment"
+        tools:layout="@layout/fragment_duygu_durum">
+        <argument
+            android:name="duyguAnahtar"
+            app:argType="long" />
+        <action
+            android:id="@+id/action_duyguDurumFragment_to_duyguTakipFragment"
+            app:destination="@id/duyguTakipFragment"
+            app:launchSingleTop="false"
+            app:popUpTo="@id/duyguTakipFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

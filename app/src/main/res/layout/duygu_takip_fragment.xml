@@ -5,6 +5,9 @@
 
     <data>
 
+        <variable
+            name="duyguTakipGoruntuModel"
+            type="com.dh.duygutakibi.duygutakip.DuyguTakipGoruntuModeli" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -17,6 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/g_margin"
+            android:onClick="@{() -> duyguTakipGoruntuModel.duyguTakibiniBaslat()}"
             android:text="@string/baslat"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -26,6 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/g_margin"
+            android:onClick="@{() -> duyguTakipGoruntuModel.duyguTakibiniDurdur()}"
             android:text="@string/bitir"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -39,13 +44,14 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/duygu_veri_listeniz" />
+                android:text="@{duyguTakipGoruntuModel.duygularString}" />
         </ScrollView>
 
         <Button
             android:id="@+id/veri_temizle_butonu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="@{() -> duyguTakipGoruntuModel.tumVeriyiSil()}"
             android:text="@string/tum_veriyi_temizle"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
