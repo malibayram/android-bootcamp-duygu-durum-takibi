@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="duygu"
+            type="com.dh.duygudurumtakibi.veritabani.DuyguDurum" />
+
+        <variable
+            name="tiklamaTakibi"
+            type="com.dh.duygudurumtakibi.duygutakip.TiklamaTakipcisi" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
+        app:cardMaxElevation="12dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="@{() -> tiklamaTakibi.tiklandi(duygu)}">
+
+            <ImageView
+                android:id="@+id/duygu_resim"
+                android:layout_width="@dimen/icon_boyutu"
+                android:layout_height="@dimen/icon_boyutu"
+                android:layout_margin="@dimen/g_margin"
+                android:contentDescription="@string/app_name"
+                app:duyguIcon="@{duygu}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@drawable/thinking" />
+
+            <TextView
+                android:id="@+id/duygu_suresi"
+                android:layout_width="0dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                app:duyguSuresi="@{duygu}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/duygu_resim"
+                app:layout_constraintTop_toTopOf="@+id/duygu_resim"
+                tools:text="Wednesday" />
+
+            <TextView
+                android:id="@+id/duygu_durum"
+                android:layout_width="0dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="8dp"
+                app:duyguDurumu="@{duygu}"
+                app:layout_constraintEnd_toEndOf="@+id/duygu_suresi"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/duygu_suresi"
+                app:layout_constraintTop_toBottomOf="@+id/duygu_suresi"
+                tools:text="@string/durum_6" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

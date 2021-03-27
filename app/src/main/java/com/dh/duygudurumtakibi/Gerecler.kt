@@ -9,6 +9,48 @@ import android.text.Spanned
 import androidx.core.text.HtmlCompat
 import com.dh.duygudurumtakibi.veritabani.DuyguDurum
 import java.text.SimpleDateFormat
+import java.util.*
+import java.util.concurrent.TimeUnit
+
+
+private val BIR_DAKIKA_MILISANIYE = TimeUnit.MILLISECONDS.convert(1, TimeUnit.MINUTES)
+private val BIR_SAAT_MILISANIYE = TimeUnit.MILLISECONDS.convert(1, TimeUnit.HOURS)
+
+fun sureyiMetneCevir(baslamaMilisaniye: Long, bitisMilisaniye: Long, kaynak: Resources): String {
+    val sureMilisaniye = bitisMilisaniye - baslamaMilisaniye
+    val haftaninGunu = SimpleDateFormat("EEEE", Locale.getDefault()).format(baslamaMilisaniye)
+
+    return when {
+        sureMilisaniye < BIR_DAKIKA_MILISANIYE -> {
+            val saniye = TimeUnit.SECONDS.convert(sureMilisaniye, TimeUnit.MILLISECONDS)
+            kaynak.getString(R.string.saniye_uzunlugu, haftaninGunu, saniye)
+        }
+        sureMilisaniye < BIR_SAAT_MILISANIYE -> {
+            val dakika = TimeUnit.MINUTES.convert(sureMilisaniye, TimeUnit.MILLISECONDS)
+            kaynak.getString(R.string.dakika_uzunlugu, haftaninGunu, dakika)
+        }
+        else -> {
+            val saat = TimeUnit.HOURS.convert(sureMilisaniye, TimeUnit.MILLISECONDS)
+            kaynak.getString(R.string.saat_uzunlugu, haftaninGunu, saat)
+        }
+    }
+}
+
+fun duyguDurumuMetneCevir(durum: Int, kaynaklar: Resources): String {
+    var qualityString = kaynaklar.getString(R.string.durum_5)
+    when (durum) {
+        -1 -> qualityString = "--"
+        0 -> qualityString = kaynaklar.getString(R.string.durum_0)
+        1 -> qualityString = kaynaklar.getString(R.string.durum_1)
+        2 -> qualityString = kaynaklar.getString(R.string.durum_2)
+        3 -> qualityString = kaynaklar.getString(R.string.durum_3)
+        4 -> qualityString = kaynaklar.getString(R.string.durum_4)
+        6 -> qualityString = kaynaklar.getString(R.string.durum_6)
+        7 -> qualityString = kaynaklar.getString(R.string.durum_7)
+        8 -> qualityString = kaynaklar.getString(R.string.durum_8)
+    }
+    return qualityString
+}
 
 @SuppressLint("SimpleDateFormat")
 fun milisaniyeyiStringTariheCevir(milisaniye: Long): String {

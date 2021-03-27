@@ -20,6 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/g_margin"
+            android:enabled="@{duyguTakipGoruntuModel.baslaButonuGorunmesi}"
             android:onClick="@{() -> duyguTakipGoruntuModel.duyguTakibiniBaslat()}"
             android:text="@string/baslat"
             app:layout_constraintStart_toStartOf="parent"
@@ -30,27 +31,30 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/g_margin"
+            android:enabled="@{duyguTakipGoruntuModel.bitisButonuGorunmesi}"
             android:onClick="@{() -> duyguTakipGoruntuModel.duyguTakibiniDurdur()}"
             android:text="@string/bitir"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ScrollView
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/duygu_listesi"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toTopOf="@+id/veri_temizle_butonu"
-            app:layout_constraintTop_toBottomOf="@+id/baslat_butonu">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bitir_butonu">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@{duyguTakipGoruntuModel.duygularString}" />
-        </ScrollView>
+        </androidx.recyclerview.widget.RecyclerView>
 
         <Button
             android:id="@+id/veri_temizle_butonu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:enabled="@{duyguTakipGoruntuModel.temizleButonuGorunmesi}"
             android:onClick="@{() -> duyguTakipGoruntuModel.tumVeriyiSil()}"
             android:text="@string/tum_veriyi_temizle"
             app:layout_constraintBottom_toBottomOf="parent"

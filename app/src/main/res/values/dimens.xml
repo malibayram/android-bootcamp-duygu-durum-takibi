@@ -3,4 +3,8 @@
     <dimen name="g_margin">16dp</dimen>
     <dimen name="normal_metin_boyutu">18sp</dimen>
     <dimen name="soru_metin_boyutu">20sp</dimen>
+
+    <dimen name="padding">16dp</dimen>
+    <dimen name="duygu_satir_metin_boyutu">24sp</dimen>
+    <dimen name="icon_boyutu">64dp</dimen>
 </resources>

@@ -4,10 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import com.dh.duygudurumtakibi.R
 import com.dh.duygudurumtakibi.databinding.DuyguTakipFragmentBinding
 import com.dh.duygudurumtakibi.veritabani.Veritabani
@@ -66,6 +68,21 @@ class DuyguTakipFragment : Fragment() {
                 duyguTakipGoruntuModel.snackBarGosterildi()
             }
         })
+
+        val adaptor = DuyguGoruntuAdaptoru(TiklamaTakipcisi { duyguId ->
+            Toast.makeText(context, "$duyguId", Toast.LENGTH_SHORT).show()
+        })
+
+        veriBagi.duyguListesi.adapter = adaptor
+
+        duyguTakipGoruntuModel.duygular.observe(viewLifecycleOwner, {
+            it?.let {
+                adaptor.submitList(it)
+            }
+        })
+
+        val manager = GridLayoutManager(activity, 3, GridLayoutManager.VERTICAL, false)
+        veriBagi.duyguListesi.layoutManager = manager
 
         return veriBagi.root
     }

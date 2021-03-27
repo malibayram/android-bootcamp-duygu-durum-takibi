@@ -12,7 +12,7 @@ class DuyguTakipGoruntuModeli(
     uygulama: Application
 ) : AndroidViewModel(uygulama) {
     private var sonDuygu = MutableLiveData<DuyguDurum?>()
-    private val duygular = veritabani.tumDuyguVerisiniGetir()
+    val duygular = veritabani.tumDuyguVerisiniGetir()
 
     val duygularString = Transformations.map(duygular) { duygular ->
         duyguyuHtmleCevir(duygular, uygulama.resources)
@@ -78,6 +78,19 @@ class DuyguTakipGoruntuModeli(
             sonDuygu.value = null
             _snackBarGoster.value = true
         }
+    }
+
+
+    val baslaButonuGorunmesi = Transformations.map(sonDuygu) {
+        it == null
+    }
+
+    val bitisButonuGorunmesi = Transformations.map(sonDuygu) {
+        it != null
+    }
+
+    val temizleButonuGorunmesi = Transformations.map(duygular) {
+        it?.isNotEmpty()
     }
 
 }

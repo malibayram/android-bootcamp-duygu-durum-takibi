@@ -15,6 +15,11 @@
             app:destination="@id/duyguDurumFragment"
             app:enterAnim="@anim/saga_kay"
             app:popEnterAnim="@anim/saga_kay" />
+        <action
+            android:id="@+id/action_duyguTakipFragment_to_duyguDetayFragment"
+            app:destination="@id/duyguDetayFragment"
+            app:enterAnim="@anim/saga_kay"
+            app:popEnterAnim="@anim/saga_kay" />
     </fragment>
 
     <fragment
@@ -31,5 +36,21 @@
             app:launchSingleTop="false"
             app:popUpTo="@id/duyguTakipFragment"
             app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/duyguDetayFragment"
+        android:name="com.dh.duygudurumtakibi.duygudetay.DuyguDetayFragment"
+        android:label="duygu_detay_fragment"
+        tools:layout="@layout/duygu_detay_fragment">
+        <action
+            android:id="@+id/action_duyguDetayFragment_to_duyguTakipFragment"
+            app:destination="@id/duyguTakipFragment"
+            app:launchSingleTop="false"
+            app:popUpTo="@id/duyguTakipFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="duyguAnahtar"
+            app:argType="long" />
     </fragment>
 </navigation>
