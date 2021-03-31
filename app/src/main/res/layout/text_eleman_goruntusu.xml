@@ -2,6 +2,7 @@
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:text="@string/baslik"
     android:paddingStart="@dimen/padding"
     android:paddingEnd="@dimen/padding"
     android:textSize="@dimen/duygu_satir_metin_boyutu" />

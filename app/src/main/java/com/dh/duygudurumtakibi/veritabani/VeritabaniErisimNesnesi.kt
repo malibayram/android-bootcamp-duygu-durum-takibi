@@ -8,11 +8,17 @@ interface VeritabaniErisimNesnesi {
     @Insert
     suspend fun ekle(duyguDurum: DuyguDurum)
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun tumunuekle(duyguDurum: List<DuyguDurum>)
+
     @Query("SELECT * FROM duygu_durum_tablosu ORDER BY kimlikNumarasi DESC")
     fun tumDuyguVerisiniGetir(): LiveData<List<DuyguDurum>>
 
     @Query("SELECT * FROM duygu_durum_tablosu WHERE kimlikNumarasi = :kimlik")
     suspend fun getir(kimlik: Long): DuyguDurum?
+
+    @Query("SELECT * FROM duygu_durum_tablosu WHERE kimlikNumarasi = :anahtar")
+    fun kimlikleGetir(anahtar: Long): LiveData<DuyguDurum?>
 
     @Query("SELECT * FROM duygu_durum_tablosu ORDER BY kimlikNumarasi DESC LIMIT 1")
     suspend fun sonDuyguDurumuGetir(): DuyguDurum?

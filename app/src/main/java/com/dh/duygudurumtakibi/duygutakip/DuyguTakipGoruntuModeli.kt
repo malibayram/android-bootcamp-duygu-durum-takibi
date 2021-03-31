@@ -28,6 +28,14 @@ class DuyguTakipGoruntuModeli(
     val snackBarGoster: LiveData<Boolean>
         get() = _snackBarGoster
 
+    private val _duyguDetayaYonlendir = MutableLiveData<Long?>()
+    val duyguDetayaYonlendir
+        get() = _duyguDetayaYonlendir
+
+    fun duyguDetayaYonlendirmeTamamlandi() {
+        _duyguDetayaYonlendir.value = null
+    }
+
     fun snackBarGosterildi() {
         _snackBarGoster.value = false
     }
@@ -91,6 +99,10 @@ class DuyguTakipGoruntuModeli(
 
     val temizleButonuGorunmesi = Transformations.map(duygular) {
         it?.isNotEmpty()
+    }
+
+    fun duyguDurumTiklandi(id: Long) {
+        _duyguDetayaYonlendir.value = id
     }
 
 }

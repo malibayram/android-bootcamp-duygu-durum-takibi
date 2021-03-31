@@ -6,9 +6,10 @@
     <string name="bitir">Bitir</string>
     <string name="tum_veriyi_temizle">Tüm Veriyi Temizle</string>
     <string name="duygu_veri_listeniz">Duygu Veri Listeniz</string>
+    <string name="kapat">KAPAT</string>
+    <string name="sil">SİL</string>
 
-
-    <string name="baslik"><![CDATA[<h3>DUYGU DURUM VERİLERİNİZ</h3>]]></string>
+    <string name="baslik">DUYGU DURUM VERİLERİNİZ</string>
     <string name="baslama_zamani"><![CDATA[<b>Başlama:</b>]]></string>
     <string name="bitis_zamani"><![CDATA[<b>Bitiş:</b>]]></string>
     <string name="duygu"><![CDATA[<b>Duygu:</b>]]></string>

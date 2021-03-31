@@ -1,13 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     tools:context=".duygudetay.DuyguDetayFragment">
 
-    <TextView
+    <data>
+
+        <variable
+            name="duyguDetayGoruntuModel"
+            type="com.dh.duygudurumtakibi.duygudetay.DuyguDetayViewModel" />
+    </data>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Hello" />
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/padding">
 
-</FrameLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/soru_metin_boyutu"
+            app:duyguSuresi="@{duyguDetayGoruntuModel.duyguDurum}" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/soru_metin_boyutu"
+            app:duyguDurumu="@{duyguDetayGoruntuModel.duyguDurum}" />
+
+        <ImageView
+            android:layout_width="88dp"
+            android:layout_height="88dp"
+            android:layout_margin="@dimen/g_margin"
+            android:contentDescription="@string/app_name"
+            android:scaleType="fitCenter"
+            app:duyguIcon="@{duyguDetayGoruntuModel.duyguDurum}" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/g_margin"
+                android:layout_weight="1"
+                android:onClick="@{() -> duyguDetayGoruntuModel.yonlendirmeTiklandi()}"
+                android:text="@string/kapat"
+                tools:ignore="ButtonStyle" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/g_margin"
+                android:layout_weight="1"
+                android:onClick="@{() -> duyguDetayGoruntuModel.duyguDurumuSil()}"
+                android:text="@string/sil"
+                tools:ignore="ButtonStyle" />
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

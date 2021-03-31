@@ -49,6 +49,16 @@ class DuyguTakipFragment : Fragment() {
             }
         })
 
+        duyguTakipGoruntuModel.duyguDetayaYonlendir.observe(viewLifecycleOwner, { duyguId ->
+            duyguId?.let {
+                this.findNavController().navigate(
+                    DuyguTakipFragmentDirections
+                        .actionDuyguTakipFragmentToDuyguDetayFragment(duyguId)
+                )
+                duyguTakipGoruntuModel.duyguDetayaYonlendirmeTamamlandi()
+            }
+        })
+
         duyguTakipGoruntuModel.snackBarGoster.observe(viewLifecycleOwner, {
             if (it == true) { // Observed state is true.
                 // alternatif olarak toast mesajı da gösterilebilir
@@ -70,18 +80,26 @@ class DuyguTakipFragment : Fragment() {
         })
 
         val adaptor = DuyguGoruntuAdaptoru(TiklamaTakipcisi { duyguId ->
-            Toast.makeText(context, "$duyguId", Toast.LENGTH_SHORT).show()
+            duyguTakipGoruntuModel.duyguDurumTiklandi(duyguId)
         })
 
         veriBagi.duyguListesi.adapter = adaptor
 
         duyguTakipGoruntuModel.duygular.observe(viewLifecycleOwner, {
             it?.let {
-                adaptor.submitList(it)
+                adaptor.addHeaderAndSubmitList(it)
             }
         })
 
-        val manager = GridLayoutManager(activity, 3, GridLayoutManager.VERTICAL, false)
+        val manager = GridLayoutManager(activity, 3)
+
+        manager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
+            override fun getSpanSize(siraNumarasi: Int) = when (siraNumarasi % 4) {
+                0 -> 3
+                else -> 1
+            }
+        }
+
         veriBagi.duyguListesi.layoutManager = manager
 
         return veriBagi.root
